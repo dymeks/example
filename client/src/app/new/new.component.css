@@ -1,0 +1,21 @@
+.purple {
+    color:purple;
+}
+
+.formButton{
+    color:white;
+    padding:10px;
+    display: inline-block;
+    width:100px;
+    background-color: aqua;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+form input {
+    margin-bottom: 10px;
+}
+
+.inset {
+    margin-left:20px;
+}

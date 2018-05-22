@@ -1,0 +1,39 @@
+<div>
+  <div class="purple">
+      <p *ngFor="let error of errors">{{error}}<br></p>
+  </div>
+  <form action="" (submit)="createNewProduct()">
+    <label for="name">Name </label>
+    <input id ="name" type="text" name="newProduct.name" required minlength="3" #name="ngModel" [(ngModel)]="newProduct.name"><br>
+    <label for="number">Qty </label>
+    <input id="number" type="number" name="newProduct.quantity"  required min="0" #quantity="ngModel" [(ngModel)]="newProduct.quantity"><br>
+    <label for="price">Price </label>
+    <input type="number" id="price" required min="0" #price="ngModel" name="newProduct.price" [(ngModel)]="newProduct.price"><br>
+    <button *ngIf="!name.valid || !quantity.valid || !price.valid" disabled type="submit">Create</button>
+    <button *ngIf="name.valid && quantity.valid && price.valid" type="submit">Create</button>
+  </form>
+  <a href="/products"><button>Cancel</button></a> 
+  <div *ngIf="!name.valid">
+      <div *ngIf="name.errors.required">
+        The name field is required!
+      </div>
+      <div *ngIf="name.errors.minlength">
+        The name must be at least 3 letters.
+      </div>
+    </div>
+    <div *ngIf="!quantity.valid">
+      <div *ngIf="quantity.errors.required">
+        The Quantity field is required!
+      </div>
+      <div *ngIf="quantity.errors.min">
+        The quantity must be greater than or equal to 0
+      </div>
+    </div>
+    <div *ngIf="!price.valid">
+      <div *ngIf="price.errors.required">
+        The price field is required!
+      </div>
+      <div *ngIf="price.errors.min">
+          The price must be greater than or equal to 0
+      </div>
+</div>

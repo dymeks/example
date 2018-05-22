@@ -1,0 +1,13 @@
+<div>
+    <h1> Product Details </h1>
+    <a href="/">Home</a>
+    <p><span>Name</span> {{product.name}}</p>
+    <p><span>Qty</span> {{product.quantity}}</p>
+    <p><span>Price </span> {{product.price}}</p>
+    <!-- <form (submit)="likePet()" #formData="ngForm">
+      <button [disabled]="formData.submitted" type="submit">Like</button>
+    </form> -->
+    <button *ngIf="product.price != 0" disabled>Delete</button>
+    <button *ngIf="product.price == 0" (click)="deleteProdct()">Delete</button>
+    <button [routerLink]="['/products']">Back</button>
+  </div>
